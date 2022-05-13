@@ -1,0 +1,35 @@
+<div class="content" role="main">
+    <!-- <button class="btn btn-primary">DSSV</button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Ma SV</th>
+                <th>Ten SV</th>
+                <th>Trang thai</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let student of students'>
+                <td>{{ student.id }}</td>
+                <td>{{ student.name }}</td>
+                <td>
+                    <span *ngIf="student.status === 1"> YES </span>
+                    <span *ngIf="student.status === 0">No</span>
+                </td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <div class="container">
+        <h1>DS Giang vien</h1>
+        <div>
+            <app-table [users]="teachers"></app-table>
+        </div>
+        <div>
+            Ten sv:
+            <app-name [name]="studentName"></app-name>
+            Ma sv:
+            <app-identity [id]="studentId"></app-identity>
+        </div>
+
+    </div>
