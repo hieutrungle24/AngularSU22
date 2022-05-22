@@ -21,10 +21,59 @@
     </table> -->
 
     <div class="container">
-        <h1>DS Giang vien</h1>
         <div>
-            <app-table [users]="teachers"></app-table>
+            <h1>Angular form</h1>
+            <div>
+                <app-form></app-form>
+            </div>
         </div>
+
+        <hr>
+
+        <h1 (click)="clickH1()">DS Giang vien {{schoolName}}</h1>
+        <div>
+            <form action="">
+                <input type="text" (keyup)="changeInput($event)"> {{inputValue}}
+            </form>
+        </div>
+        <div>
+            <button class="btn btn-info" (click)="changeTableStatus()">{{showStatus ? 'An' : 'Hien'}} bang</button>
+            <app-table [users]="teachers" *ngIf="showStatus">
+                class="{{showStatus ? 'display-block' : 'display-none'}}"
+            </app-table>
+        </div>
+        <div>
+            <h4>Form dang ki thong tin giang vien</h4>
+            <form action="">
+                <div class="form-group">
+                    <label for="">Ten GV</label>
+                    <input type="text" class="form-control" (input)="onInput($event, 'name')" [value]="inputValues.name">
+                </div>
+                <div class="form-group">
+                    <label for="">Tuoi GV</label>
+                    <input type="number" class="form-control" (input)="onInput($event, 'age')" [value]="inputValues.age">
+                </div>
+                <div class="form-group">
+                    <label for="">Avatar</label>
+                    <input type="file" class="form-control" (input)="onInput($event, 'avatar')" [value]="inputValues.avatar">
+                </div>
+                <div class="form=group">
+                    <label for="">Gioi tinh</label>
+                    <input type="radio" class="form-check" (input)="onInput($event, 'gender')" [checked]="inputValues.gender === '1'" [value]="1">Nam
+                    <input type="radio" class="form-check" (input)="onInput($event, 'gender')" [checked]="inputValues.gender === '0' " [value]="0">Nu
+                </div>
+                <div class="form-group">
+                    <label for="">Trang thai</label>
+                    <input type="radio" class="form-check" (input)="onInput($event, 'status')" [checked]="inputValues.status === '1' " [value]="1">Da nghi
+                    <input type="radio" class="form-check" (input)="onInput($event, 'status')" [checked]="inputValues.status === '0' " [value]> Dang lam viec
+                </div>
+                <div>
+                    <button type="button" (click)="onSubmit()" class="btn btn-success">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        <hr>
         <div>
             Ten sv:
             <app-name [name]="studentName"></app-name>
