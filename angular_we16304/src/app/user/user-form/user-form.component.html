@@ -1,0 +1,34 @@
+<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <div class="form-group">
+        <label for="">Ten user</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="inputValues.name" required minlength="6" #name="ngModel">
+        <app-show-validate [field]="name" key="Tên"></app-show-validate>
+        <!-- <span>{{name.dirty | json}}</span> -->
+        <!-- <span *ngIf="name.dirty && name.errors?.['required']" class="text-danger">Ten khong duoc de trong</span>
+        <span *ngIf=" name.dirty && name.errors?.['minlength']" class="text-danger">Ten phai tren 6 ky tu</span> -->
+    </div>
+    <div class="form-group">
+        <label for="">Tuoi user</label>
+        <input type="number" class="form-control" name="age" #age="ngModel" [(ngModel)]="inputValues.age" required min="1" max="100">
+        <app-show-validate [field]="age" key="Tuổi"></app-show-validate>
+        <!-- <span class="text-danger" *ngIf="(age.dirty || age.touched) && age.errors?.['required']">Tuoi khong duoc de trong</span>
+        <span class="text-danger" *ngIf="(age.dirty || age.touched) && age.errors?.['min']">Tuoi toi thieu bang 1</span>
+        <span class="text-danger" *ngIf="(age.dirty || age.touched) && age.errors?.['max']">Tuoi toi da bang 100</span> -->
+    </div>
+    <div class="form-group">
+        <label for="">Email user</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="inputValues.email" required email #email="ngModel">
+        <app-show-validate [field]="email" key="Email"></app-show-validate>
+    </div>
+    <div class="form-group">
+        <label for="">Sđt</label>
+        <input type="text" class="form-control" name="sdt" [(ngModel)]="inputValues.sdt" required sđt #sđt="ngModel">
+    </div>
+    <div class="form-group">
+        <label for="">Avatar</label>
+        <input type="text" class="form-control" name="avatar" [(ngModel)]="inputValues.avatar" required avatar #avatar="ngModel">
+    </div>
+    <div>
+        <button class="btn btn-success" [disabled]="!userForm.valid">Submit</button>
+    </div>
+</form>
