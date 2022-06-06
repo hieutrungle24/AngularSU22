@@ -7,12 +7,27 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
-  @Input() inputValues:any;
+  @Input() inputValues: {
+    id: number,
+    name: string,
+    age: number,
+    email: string,
+    sdt: string,
+    avatar: string,
+  };
   //dinh nghia su kien de ban du lieu nguoc lai
   @Output() handleSubmit: EventEmitter<any>;
   constructor() {
     //khai bao gia tri default
     this.handleSubmit = new EventEmitter();
+    this.inputValues = {
+      id: 0,
+      name: '',
+      age: 0,
+      email: '',
+      sdt: '',
+      avatar: '',
+    }
    }
 
   ngOnInit(): void {

@@ -1,0 +1,15 @@
+<!--định nghĩa biến quản lý form-->
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="">Name</label>
+
+        <!--Định nghĩa thuộc tính lắng nghe input-->
+        <input type="text" class="form-control" formControlName="name">
+        <app-show-validate [field]="productForm.get('name')" key="Tên sản phẩm">
+
+        </app-show-validate>
+    </div>
+    <div>
+        <button class="btn btn-success" [disabled]="!productForm.valid">Submit</button>
+    </div>
+</form>

@@ -1,4 +1,5 @@
 <form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <h1>DS nu sinh </h1>
     <div class="form-group">
         <label for="">Ten user</label>
         <input type="text" class="form-control" name="name" [(ngModel)]="inputValues.name" required minlength="6" #name="ngModel">
